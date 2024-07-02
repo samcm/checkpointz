@@ -50,7 +50,7 @@ jobs:
       - name: Install make
         run: sudo apt-get -y install make
       - name: Set up QEMU
-        uses: docker/setup-qemu-action@v2
+        uses: docker/setup-qemu-action@v3
       - name: Set up Docker Context for Buildx
         shell: bash
         id: buildx-context
