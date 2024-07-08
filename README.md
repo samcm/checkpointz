@@ -59,9 +59,11 @@ More info: https://notes.ethereum.org/sWeLohipS9GdgMugYn9VkQ
 |   |  Prysm |  Lighthouse | Nimbus |  Lodestar  | Teku |
 |:---:|:---:|:---:|:---:|:---:|:---:|
 |  Light mode | ✅  | ✅  |  ✅ | ✅  | ✅ |
-|  Full mode |  ✅ | ✅  | ✅ | ✅  |  with `--data-storage-mode archive` |
+|  Full mode |  with `--data-storage-mode archive` | ✅  | ✅ | ✅  |  with `--data-storage-mode archive` |
 
 Note: Teku will require a resync from genesis if you enable `--data-storage-mode archive`.
+
+Note: Prysm will require to start with `--enable-debug-rpc-endpoints` flag for Checkpointz full mode (debug endpoints are required).
 # Usage
 Checkpointz requires a config file. An example file can be found [here](https://github.com/ethpandaops/checkpointz/blob/master/example_config.yaml).
 
