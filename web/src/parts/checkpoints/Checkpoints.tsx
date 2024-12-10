@@ -24,7 +24,7 @@ export default function Checkpoints() {
   const latestEpoch = useMemo(() => {
     const finalizedEpoch = statusData?.data?.finality?.finalized?.epoch;
     if (!finalizedEpoch) return;
-    return parseInt(finalizedEpoch);
+    return finalizedEpoch;
   }, [statusData]);
 
   if (isLoading)

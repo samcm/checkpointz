@@ -10,7 +10,7 @@ import { APIBeaconSlot } from '@types';
 import { truncateHash } from '@utils';
 
 export default function CheckpointsTable(props: {
-  latestEpoch?: number;
+  latestEpoch?: string;
   slots: APIBeaconSlot[];
   onSlotClick?: (slot: APIBeaconSlot) => void;
   showCheckpoint?: boolean;
