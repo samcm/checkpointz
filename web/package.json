@@ -63,7 +63,7 @@
     "@typescript-eslint/eslint-plugin": "5.52.0",
     "@typescript-eslint/parser": "5.52.0",
     "autoprefixer": "10.4.13",
-    "eslint-config-prettier": "8.6.0",
+    "eslint-config-prettier": "10.0.1",
     "eslint-config-react-app": "7.0.1",
     "eslint-import-resolver-typescript": "3.5.3",
     "eslint-plugin-import": "2.27.5",
