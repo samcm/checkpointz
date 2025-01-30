@@ -82,6 +82,11 @@ func (n Nodes) Healthy(ctx context.Context) Nodes {
 			continue
 		}
 
+		_, err := node.Beacon.Genesis()
+		if err != nil {
+			continue
+		}
+
 		nodes = append(nodes, node)
 	}
 
@@ -116,10 +121,25 @@ func (n Nodes) Syncing(ctx context.Context) Nodes {
 	return nodes
 }
 
+func (n Nodes) NotOptimisticEL(ctx context.Context) Nodes {
+	nodes := []*Node{}
+
+	for _, node := range n {
+		if node.Beacon.Status().SyncState().IsOptimistic {
+			continue
+		}
+
+		nodes = append(nodes, node)
+	}
+
+	return nodes
+}
+
 func (n Nodes) Ready(ctx context.Context) Nodes {
 	return n.
 		Healthy(ctx).
-		NotSyncing(ctx)
+		NotSyncing(ctx).
+		NotOptimisticEL(ctx)
 }
 
 func (n Nodes) RandomNode(ctx context.Context) (*Node, error) {

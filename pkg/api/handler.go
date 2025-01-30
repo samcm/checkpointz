@@ -199,6 +199,11 @@ func (h *Handler) handleEthV2BeaconBlocks(ctx context.Context, r *http.Request, 
 			ContentTypeJSON: block.Deneb.MarshalJSON,
 			ContentTypeSSZ:  block.Deneb.MarshalSSZ,
 		})
+	case spec.DataVersionElectra:
+		rsp = NewSuccessResponse(ContentTypeResolvers{
+			ContentTypeJSON: block.Electra.MarshalJSON,
+			ContentTypeSSZ:  block.Electra.MarshalSSZ,
+		})
 	default:
 		return NewInternalServerErrorResponse(nil), errors.New("unknown block version")
 	}
@@ -251,6 +256,8 @@ func (h *Handler) handleEthV2DebugBeaconStates(ctx context.Context, r *http.Requ
 				return state.Capella.MarshalSSZ()
 			case spec.DataVersionDeneb:
 				return state.Deneb.MarshalSSZ()
+			case spec.DataVersionElectra:
+				return state.Electra.MarshalSSZ()
 			default:
 				return nil, fmt.Errorf("unknown state version: %s", state.Version.String())
 			}
